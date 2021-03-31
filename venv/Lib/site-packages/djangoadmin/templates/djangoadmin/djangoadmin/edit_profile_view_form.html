@@ -1,0 +1,60 @@
+{% extends 'djangoadmin/base/body/index_admin.html' %}
+
+{% block body %}
+{% include "djangoadmin/widgets/alert.html" %}
+
+<form method="POST" action="#" enctype="multipart/form-data">
+{% csrf_token %}
+
+<div class="card rounded-0 mb-1">
+    <div class="card-header p-2">
+        {{ userform.image.label }}
+    </div>
+    <div class="card-body">
+    <div class="custom-file">
+        {{ userform.image }}
+    </div>
+    </div>
+</div>
+
+<div class="form-group mb-1">
+    <label for="{{ userchangeform.username.id_for_label }}">{{ userchangeform.username.label }}</label>
+    {{ userchangeform.username }}
+</div>
+
+<div class="form-group mb-1">
+    <label for="{{ userchangeform.email.id_for_label }}">{{ userchangeform.email.label }}</label>
+    {{ userchangeform.email }}
+</div>
+
+<div class="row mb-1">
+<div class="col">
+    <label for="{{ userchangeform.username.id_for_label }}">{{ userchangeform.first_name.label }}</label>
+    {{ userchangeform.first_name }}
+</div>
+<div class="col mb-1">
+    <label for="{{ userchangeform.username.id_for_label }}">{{ userchangeform.last_name.label }}</label>
+    {{ userchangeform.last_name }}
+</div>
+</div>
+
+<div class="form-group mb-1">
+    <label for="{{ userform.address.id_for_label }}">{{ userform.address.label }}</label>
+    {{ userform.address }}
+</div>
+
+<div class="row mb-1">
+<div class="col">
+    <label for="{{ userform.phone.id_for_label }}">{{ userform.phone.label }}</label>
+    {{ userform.phone }}
+</div>
+<div class="col">
+    <label for="{{ userform.website.id_for_label }}">{{ userform.website.label }}</label>
+    {{ userform.website }}
+</div>
+</div>
+
+<button class="btn btn-primary btn-block rounded-0 my-1" type="submit">Submit</button>
+</form>
+
+{% endblock body %}

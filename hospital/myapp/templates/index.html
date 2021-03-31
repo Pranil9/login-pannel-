@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert data</title>
+    {% load static %}
+    <!--<link rel="stylesheet" href="{% static 'library.css' %}"/>
+    <script src="{% static 'librarybootstrap.js' %}"></script>
+    <script src="{% static 'libraryjquery.js' %}"></script>-->
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <style>
+        input{width:300px;height:30px;color:black}
+        body{
+            background-image:url("{% static '/2.jpg' %}");
+            background-size: cover;
+        }
+        h3{text-align:center;font-weight:bold;font-size:50px;color:black}
+    </style>
+</head>
+<body>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<div>
+<form action="/create" method="post" style="color:black;font-size:large;font-weight:bold" >
+    {% csrf_token %}
+    <h3>Welcome to register book</h3>
+    <hr>
+    <h4 style="font-weight:bold">Please provide your details here!!</h4><hr>
+    <div style="margin-left:50px;float:left">
+    Patient ID=<br><input type="number" name="pid" placeholder="----enter the patient ID" required><br><br>
+    Patient Name=<br><input type="text" name="pname" placeholder="----enter the patient name" required><br><br>
+    Contact No=<br><input type="number" name="contact" placeholder="----enter the patient mobile no" required><br><br>
+    Patient Address=<br><input type="text" name="address" placeholder="----enter the address of patient " required><br><br>
+    Reference=<br><input type="text" name="reference" placeholder="----enter the reference " required ><br><br>
+    <input type="submit" value="SUBMIT" style="background-color:blue;color:yellow;font-size:large">
+    </div>
+
+</form>
+</div>
+</body>
+</html>

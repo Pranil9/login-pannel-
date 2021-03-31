@@ -1,0 +1,10 @@
+{% extends 'djangoadmin/base/body/index_auth.html' %}
+
+{% block body %}
+{% include "djangoadmin/widgets/alert_absolute.html" %}
+<img src="https://cdn.pixabay.com/photo/2019/07/02/17/52/mountains-4312789_960_720.jpg" class="img-fluid w-100 h-100" alt="Responsive image">
+{% endblock body %}
+
+{% block sidebar-right %}
+{% include "djangoadmin/widgets/signup_form.html" %}
+{% endblock sidebar-right %}

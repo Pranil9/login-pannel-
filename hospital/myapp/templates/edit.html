@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Indet</title>
+    {% load static %}
+
+   <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <style>
+        input{width:400px;height:40px;color:blue;padding:6px}
+        body{
+            background-image:url("{% static '/6.jpg' %}");
+            background-size: cover;
+            color:black;font-weight:bold
+        }
+    </style>
+
+
+</head>
+<body>
+<form method="POST" class="post-form" action="/update/{{patient1.id}}">
+    {% csrf_token %}
+    <div style="margin-left:70%;margin-top:70px">
+        <div>
+           Patient ID:<br>
+            <input type="number" name="pid" value="{{ patient1.pid }}" required/><br>
+        </div>
+
+        <div>
+           Patient Name:<br>
+            <input type="text" name="pname" id="id_pname" required value="{{ patient1.pname }}" required/><br>
+        </div>
+
+        <div>
+            Contact:<br>
+            <input type="number" name="contact" id="id_contact" required value="{{ patient1.contact }}" required/><br>
+        </div>
+
+        <div>
+            Address:<br>
+            <input type="text" name="address" id="id_address" required value="{{ patient1.address }}" required/><br>
+        </div>
+
+        <div>
+            Reference:<br>
+            <input type="text" name="reference" id="id_reference" required value="{{ patient1.reference }}" required/><br>
+        </div>
+
+        <div style="margin-left:100px;margin-top:50px">
+            <button type="submit" class="btn btn-info">Update</button>
+        </div>
+        </div>
+</form>
+
+</body>
+</html>

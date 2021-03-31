@@ -1,0 +1,21 @@
+{% extends 'djangoadmin/base/body/index_admin.html' %}
+
+{% block body %}
+{% include "djangoadmin/widgets/alert.html" %}
+{% include "djangoadmin/widgets/userprofile_jumbotron.html" %}
+<div class="card rounded-0 bg-light mb-1 p-0">
+    <div class="card-body p-2">
+    <p class="card-text">Address: {{ user_detail.usermodel.address }}</p>
+    <p class="card-text">Phone Number: +{{ user_detail.usermodel.phone }}</p>
+    <p class="card-text">Website: <a href="{{ user_detail.usermodel.website }}">{{ user_detail.usermodel.website }}</a></p>
+    </div>
+</div>
+
+<div class="card rounded-0 bg-light mb-1 p-0">
+<ul class="nav">
+    <nav class="nav-item"><a class="nav-link" href="{% url 'djangoadmin:edit_profile_view' %}">Edit Profile</a></nav>
+    <nav class="nav-item"><a class="nav-link" href="{% url 'djangoadmin:password_change_view' %}">Password Change</a></nav>
+    <nav class="nav-item"><a class="nav-link" href="{% url 'djangoadmin:password_reset' %}">Forgot password</a></nav>
+</ul>
+</div>
+{% endblock body %}

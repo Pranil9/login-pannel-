@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Indet</title>
+    {% load static %}
+
+   <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <style>
+    input{width:400px;height:40px;color:blue;padding:6px}
+        body{
+            background-image:url("{% static '/6.jpg' %}");
+            background-size: cover;
+            color:black
+        }
+        </style>
+
+</head>
+<body>
+<form method="POST" class="post-form" action="/updatee/{{patient1.id}}">
+    {% csrf_token %}
+    <h4 style="margin-left:70%;font-weight:bold;margin-top:30px">Provide your changes here </h4>
+    <div style="margin-left:70%;margin-top:50px">
+        <div>
+            Name:<br>
+            <input type="text" name="pname" id="id_pname" required value="{{ patient1.pname }}" required/><br>
+        </div>
+
+        <div>
+            Contact:<br>
+            <input type="number" name="contact" id="id_contact" required value="{{ patient1.contact }}" required/><br>
+        </div>
+
+        <div>
+            Address:<br>
+            <input type="text" name="address" id="id_address" required value="{{ patient1.address }}" required/><br>
+        </div>
+
+        <div>
+            Reference:<br>
+            <input type="text" name="reference" id="id_reference" required value="{{ patient1.reference }}" required/><br>
+        </div>
+
+        <div>
+            Date:<br>
+            <input type="date" name="date" id="id_date" required value="{{ patient1.date }}" required/><br>
+        </div>
+
+        <div>
+            Time:<br>
+            <input type="time" name="time" id="id_time" required value="{{ patient1.time }}" required/><br>
+        </div>
+
+        <div>
+            <button style="margin-top:30px;margin-left:50px" type="submit" class="btn btn-info" value="submit">Update</button>
+        </div>
+    </div>
+</form>
+</body>
+</html>

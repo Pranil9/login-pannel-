@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display record</title>
+
+    {% load static %}
+   <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <style>
+        th{color:blue; padding:10px}
+        td{padding:10px}
+        h2{font-weight:bold;text-align:center;margin-bottom:30px;margin-top:30px}
+        body{
+            background-image:url("{% static '/5.jpg' %}");
+            background-size: cover;
+        }
+       button{margin-top:300px;margin-left:300px;width:10%}
+    </style>
+</head>
+<body>
+<h2>Appointment List !!</h2>
+<div style="background-color:white;width:80%;margin-left:100px">
+<table class="table-hover" width="100%" border="1" font-weight="bold">
+    {% csrf_token %}
+    <tr>
+        <th>Patient name</th>
+        <th>Contact no</th>
+        <th>Address</th>
+        <th>Reference</th>
+        <th>Date</th>
+        <th>Time</th>
+
+    </tr>
+    {% for patient1 in patient1 %}
+
+    <tr>
+        <td>{{ patient1.pname }}</td>
+        <td>{{ patient1.contact }}</td>
+        <td>{{ patient1.address }}</td>
+        <td>{{ patient1.reference }}</td>
+        <td>{{ patient1.date }}</td>
+        <td>{{ patient1.time }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+    </div>
+<button type="submit" style="width:20%;align:center;margin-top:50px;height:50px;text-align:centre"><a href="\doctor"><h2>OK</h2></a></button>
+</body>
+</html>

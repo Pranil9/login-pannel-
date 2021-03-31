@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Options for doctor</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <style>
+    body{
+            background-image:url("{% static '/2.jpg' %}");
+            background-size: cover;
+        }
+			div{width:350px;height:300px;background-color:lightblue;
+		           color:red;position:absolute;
+		           border-radius:20px;
+				   box-sizing:border-box;
+				   padding:30px 40px;
+				   opacity:1;
+				   transform:translate(-50%,-50%);
+				   margin-top:30%}
+			.e{margin-left:23%}
+			.b{margin-left:60%}
+			button{align:centre;margin-top:10%}
+	</style>
+<body link="green">
+<form action="\todays">
+    {% csrf_token %}
+	<div class="e">
+       <button type="submit"><h1><a href="showd.html"><b>Today's Patients</b></a></h1></button>
+	</div >
+</form>
+<form action="\appointment">
+    <div class="b">
+        <button type="submit"><h1><a href="showap.html"><b>Appointment List</b></a></h1></button>
+	</div>
+    </form>
+<button type="submit" style="width:20%;align:center;height:100px;text-align:centre;margin-left:40%;background-color:blue;margin-top:50%">
+    <a style="color:red" href="\"><h4>logout</h4></a></button>
+
+</body>
+</html>
